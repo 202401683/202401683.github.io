@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="al" onclick="change()">Change Colors</button>
+    <button onclick="showalert()">Click Me</button><br>
+
+  <button onclick="change1('red')">red</button>
+    <button onclick="change1('blue')">blue</button>
+    <button onclick="change1('yellow')">yellow</button>
+    <button onclick="change1('green')">green</button>
+    <h1 id="alter">Change my color!</h1>
+
+
+    <script>
+        function add(alop,blop) {
+            return alop*blop;
+        }
+        function circle(rad) {
+            return 3.14*rad*rad;
+        }
+        function make(num){
+            if (num>=1 && num<=3){
+                document.write("<img src='image/food"+num+".jpg'>"); 
+                return true;
+            } else {
+                return false;
+            }
+        }
+        let c=3, d=4;
+        const res= add(c,d);
+        document.write(c+"*"+d+"="+res+"<br>");
+
+        const result1= circle(d);
+        document.write(d+"가 반지름인 원의 넓이 ="+result1+"<br>")
+
+        let food = parseInt(prompt("햄버거=1, 치킨=2, 떡볶이=3"));
+        let result = make(food);
+        if(result)
+        document.write("<hr>식사 맛있게 하세요");
+    else
+    document.write("없는 음식을 주문하셨습니다.");
+
+    function change() {
+        const al = document.getElementById("al");
+        al.style.background = "palegreen"; 
+        document.body.style.background = al.style.background;
+    }
+    
+    function showalert() {
+            alert("hello");
+        }
+
+    function change1(colors) {
+        const alter = document.getElementById('alter');
+        alter.style.color = colors;
+    }
+
+    
+
+    </script>
+</body>
+</html>
