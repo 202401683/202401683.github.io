@@ -5,109 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>먹을 거 추천</title>
     <style>
-        h1{
-            background-color:azure; width: 200px;
-            margin-left: 700px;
-    
+        body {
+            background-color: rgb(250, 240, 227);
+            text-align: center;
+            padding: 20px;
         }
-        div{
-            background-color: aliceblue; border: 5px solid rgb(173, 36, 141);width:200px;
+        h1 {
+            color: purple;
         }
-        
-        nav{
-            
-            background-color: aqua; width: 420px; margin-left: 600px;
+        select, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 15px;
+            border: 1px solid aliceblue;
         }
-        section{
-            background-color: azure; 
-            margin-left: 300px; 
-            border: 5px solid rgb(224, 103, 216) ;
-            width: 300px;
+        button {
+            background-color: rgb(112, 120, 216);
+            color: white;
+            cursor: pointer;
         }
-        nav2{
-             margin-left: 300px;
-
+        button:hover {
+            background-color: gold;
         }
-        
-        name{
-            margin-left: 1450px;
+        #recommendation {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
         }
-        
-        
-        
     </style>
 </head>
 <body>
 
-<header>
-    <h1>먹을 거 추천</h1>
-</header>
+<h1>먹을 거 추천</h1>
 
-<nav>
-    환영합니다! 상황이나 기분에 맞는 음식 추천해드립니다!
-</nav>
-<hr>
+<p>상황을 선택하세요:</p>
+<select id="situation">
+    <option value="스트레스 풀 때">스트레스 풀 때</option>
+    <option value="시험 끝난 후">시험 끝난 후</option>
+    <option value="비 오는 날">비 오는 날</option>
+    <option value="집에서 혼자 휴식할 때">집에서 혼자 휴식할 때</option>
+    <option value="주말 아침">주말 아침</option>
+    <option value="여행 중">여행 중</option>
+    <option value="파티 준비할 때">파티 준비할 때</option>
+</select>
 
-<name>
-    202401683 최재웅
-</name>
+<p>기분을 선택하세요:</p>
+<select id="mood">
+    <option value="신나는 기분일 때">신나는 기분일 때</option>
+    <option value="위로가 필요할 때">위로가 필요할 때</option>
+    <option value="배고플 때">배고플 때</option>
+    <option value="피곤할 때">피곤할 때</option>
+    <option value="향수를 느낄 때">향수를 느낄 때</option>
+    <option value="무언가 특별한 걸 원할 때">무언가 특별한 걸 원할 때</option>
+</select>
 
+<button onclick="recommendFood()">추천 받기</button>
 
-<br><br><br><br>
+<div id="recommendation"></div>
 
+<script>
+    function recommendFood() {
+        const situation = document.getElementById("situation").value;
+        const mood = document.getElementById("mood").value;
+        // 음식 추천
+        const recommendations = {
+            "스트레스 풀 때": {
+                "신나는 기분일 때": "매콤한 치킨!",
+                "위로가 필요할 때": "초콜릿 케이크!",
+                "배고플 때": "치즈라면!",
+                "피곤할 때": "따뜻한 곰탕!",
+                "향수를 느낄 때": "김치찌개!",
+                "무언가 특별한 걸 원할 때": "랍스터 요리!"
+            },
+            "시험 끝난 후": {
+                "신나는 기분일 때": "치즈버거 세트!",
+                "위로가 필요할 때": "미역국!",
+                "배고플 때": "돼지갈비!",
+                "피곤할 때": "비빔밥!",
+                "향수를 느낄 때": "감자탕!",
+                "무언가 특별한 걸 원할 때": "스테이크!"
+            },
+            "비 오는 날": {
+                "신나는 기분일 때": "떡볶이!",
+                "위로가 필요할 때": "따뜻한 수프!",
+                "배고플 때": "짬뽕!",
+                "피곤할 때": "순두부찌개!",
+                "향수를 느낄 때": "감자전과 막걸리!",
+                "무언가 특별한 걸 원할 때": "크림 파스타!"
+            },
+            "집에서 혼자 휴식할 때": {
+                "신나는 기분일 때": "스파게티!",
+                "위로가 필요할 때": "초코 아이스크림!",
+                "배고플 때": "치즈 토스트!",
+                "피곤할 때": "카레!",
+                "향수를 느낄 때": "된장찌개!",
+                "무언가 특별한 걸 원할 때": "미트볼과 스리라차 소스!"
+            },
+            "주말 아침": {
+                "신나는 기분일 때": "팬케이크와 메이플 시럽!",
+                "위로가 필요할 때": "크로와상과 커피!",
+                "배고플 때": "라면!",
+                "피곤할 때": "계란말이와 밥!",
+                "향수를 느낄 때": "간장계란밥!",
+                "무언가 특별한 걸 원할 때": "베이글과 연어 크림치즈!"
+            },
+            "여행 중": {
+                "신나는 기분일 때": "지역 특산 요리!",
+                "위로가 필요할 때": "따뜻한 차와 간단한 디저트!",
+                "배고플 때": "패스트푸드!",
+                "피곤할 때": "과자!",
+                "향수를 느낄 때": "한식 도시락!",
+                "무언가 특별한 걸 원할 때": "고급 레스토랑 코스 요리!"
+            },
+            "파티 준비할 때": {
+                "신나는 기분일 때": "칵테일과 핑거푸드!",
+                "위로가 필요할 때": "케이크!",
+                "배고플 때": "피자!",
+                "피곤할 때": "에너지 드링크와 샌드위치!",
+                "향수를 느낄 때": "치킨과 맥주!",
+                "무언가 특별한 걸 원할 때": "홈메이드 디저트!"
+            }
+            
+        };
 
-<section>
-    <h2>상황 선택</h2>
-    <div class="conditions">
-        <input type="radio">
-        <label for="alone">혼자 먹을 때</label><br>
+        //추천음식
+        let recommendation = recommendations[situation]?.[mood];
 
-        <input type="radio">
-        <label for="friends">친구와 함께 먹을 때</label><br>
+        if (!recommendation) {
+            recommendation = "기분과 상황에 맞는 음식이 없습니다. 다른 선택을 시도해보세요!";
+            alert(recommendation);
+        }//만약 없으면 경고창 띄우기
 
-        <input type="radio">
-        <label for="family">가족과 함께 먹을 때</label><br>
-
-        <input type="radio">
-        <label for="work">야근할 때</label><br>
-
-        <input type="radio">
-        <label for="afterWorkout">운동 후</label><br>
-    </div>
-</section>
-
-<br><br><br>
-
-<section>
-    <h2>기분 선택</h2>
-    <div class="mood">
-        <input type="radio">
-        <label for="happy">행복할 때</label><br>
-
-        <input type="radio">
-        <label for="sad">슬플 때</label><br>
-
-        <input type="radio">
-        <label for="hungry">배고플 때</label><br>
-
-        <input type="radio">
-        <label for="tired">피곤할 때</label><br>
-
-        <input type="radio">
-        <label for="celebrate">축하할 때</label><br>
-    </div>
-</section>
-<br>
-<nav2>
-    <button class="submit-button">추천 받기</button>
-    
-<nav2/>
-<br><br><br><br>
-
-<footer>
-    <h2>기타</h2>
-    <p>더 궁금한 사항은 <a href="#">여기</a>를 클릭하세요.</p>
-</footer>
+        
+        const recommendationElement = document.getElementById("recommendation");
+        recommendationElement.innerHTML = "추천 음식: " + recommendation; //추천결과
+    }
+</script>
 
 </body>
 </html>
