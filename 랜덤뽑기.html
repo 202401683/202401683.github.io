@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>먹을 거 랜덤뽑기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgb(250, 240, 227);
+            margin: 10px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 200px;
+        }
+        button {
+            padding: 20px;
+            font-size: 40px;
+            background-color: rgb(82, 106, 228);
+            color: white;
+            border: 0px;
+            border-radius: 20px;
+            cursor: pointer; 
+
+        }
+        button:hover {
+            background-color:gold;
+            color: black;
+        }
+        button:active {
+            background-color: aqua;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 80px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>🍴 랜덤뽑기로 음식을 추천 받아요🍴</h1>
+    <button onclick="pickFood()">랜덤뽑기</button>
+    <div class="result" id="food-result"></div>
+    <div calss="footer">약 90가지의 음식을 추천 받으실 수 있습니다!</div>
+
+    <script>
+        function pickFood() {
+            const foods = [
+                "피자", "치킨", "초밥", "떡볶이", "햄버거", "파스타", 
+                "삼겹살", "김밥", "라면", "족발", "냉면", 
+                "갈비탕", "제육볶음", "오징어볶음", "탕수육", "짬뽕", 
+                "짜장면", "부대찌개", "된장찌개", "비빔밥", "쌀국수", 
+                "카레", "돈까스", "순두부찌개", "불고기", "회덮밥", 
+                "매운 닭발", "떡국", "잡채", "감자탕", "닭볶음탕", 
+                "떡갈비", "소불고기", "아구찜", "코다리조림", "칼국수", 
+                "수제비", "크림파스타", "로제떡볶이", "소시지 야채볶음", 
+                "냉채족발", "어묵탕", "곱창", "막창", "갈매기살", 
+                "닭강정", "한우국밥", "황태해장국", "치킨텐더", 
+                "차돌된장찌개", "연어덮밥", "고등어구이", "돼지갈비", 
+                "소갈비", "쭈꾸미볶음", "닭꼬치", "전복죽", 
+                "사케동", "연어샐러드", "매운탕", "양념게장", 
+                "간장게장", "오리훈제", "생선까스", "꽁치구이", 
+                "마라탕", "마라샹궈", "토마토스파게티", 
+                "고르곤졸라 피자", "김치볶음밥", "새우볶음밥", 
+                "카츠산도", "곰탕", "설렁탕", "참치회", "스시롤", 
+                "규동", "육회비빔밥", "비빔냉면", "열무국수", 
+                "갈비찜", "바지락칼국수", "육개장", "홍합탕", 
+                "전복삼계탕", "닭칼국수", "오코노미야끼", "문어숙회"
+            ];
+            const randomIndex = Math.floor(Math.random() * foods.length);
+            const selectedFood = foods[randomIndex];
+            document.getElementById('food-result').textContent = `추천 음식: ${selectedFood}`;
+        }
+    </script>
+</body>
+
+</html>
